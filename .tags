@@ -1,0 +1,38 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+) require	after/plugin/refactoring.lua	/^	function() require('telescope').extensions.refactoring.refactors() end$/;"	f
+) ui.nav_file	after/plugin/harpoon.lua	/^vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)$/;"	f
+) ui.nav_file	after/plugin/harpoon.lua	/^vim.keymap.set("n", "<C-j>", function() ui.nav_file(2) end)$/;"	f
+) ui.nav_file	after/plugin/harpoon.lua	/^vim.keymap.set("n", "<C-k>", function() ui.nav_file(3) end)$/;"	f
+) ui.nav_file	after/plugin/harpoon.lua	/^vim.keymap.set("n", "<C-l>", function() ui.nav_file(4) end)$/;"	f
+) vim.diagnostic.goto_next	after/plugin/lsp.lua	/^    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)$/;"	f
+) vim.diagnostic.goto_prev	after/plugin/lsp.lua	/^    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)$/;"	f
+) vim.diagnostic.open_float	after/plugin/lsp.lua	/^    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)$/;"	f
+) vim.lsp.buf.code_action	after/plugin/lsp.lua	/^    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)$/;"	f
+) vim.lsp.buf.declaration	after/plugin/lsp.lua	/^    vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)$/;"	f
+) vim.lsp.buf.definition	after/plugin/lsp.lua	/^    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)$/;"	f
+) vim.lsp.buf.hover	after/plugin/lsp.lua	/^   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)$/;"	f
+) vim.lsp.buf.implementation	after/plugin/lsp.lua	/^    vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)$/;"	f
+) vim.lsp.buf.references	after/plugin/lsp.lua	/^    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)$/;"	f
+) vim.lsp.buf.rename	after/plugin/lsp.lua	/^    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)$/;"	f
+) vim.lsp.buf.signature_help	after/plugin/lsp.lua	/^    vim.keymap.set("n", "gs", function() vim.lsp.buf.signature_help() end, opts)$/;"	f
+) vim.lsp.buf.type_definition	after/plugin/lsp.lua	/^    vim.keymap.set("n", "go", function() vim.lsp.buf.type_definition() end, opts)$/;"	f
+) vim.lsp.buf.workspace_symbol	after/plugin/lsp.lua	/^    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)$/;"	f
+)vim.cmd	lua/theprimeagen/remap.lua	/^vim.keymap.set("n", "<leader><leader>",function()vim.cmd("so")end)$/;"	f
+ColorMyPencils	after/plugin/colors.lua	/^function ColorMyPencils(color) $/;"	f
+R	lua/theprimeagen/init.lua	/^function R(name)$/;"	f
+RTags	after/plugin/telescope.lua	/^function RTags()$/;"	f
+callback 	after/plugin/fugitive.lua	/^    callback = function()$/;"	f
+callback 	lua/theprimeagen/init.lua	/^    callback = function()$/;"	f
+config 	lua/theprimeagen/packer.lua	/^        config = function()$/;"	f
+if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~	plugin/packer_compiled.lua	/^if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then$/;"	f
+local no_errors, error_msg 	plugin/packer_compiled.lua	/^local no_errors, error_msg = pcall(function()$/;"	f
+run 	lua/theprimeagen/packer.lua	/^        run = function()$/;"	f
+save_profiles	plugin/packer_compiled.lua	/^local function save_profiles(threshold)$/;"	f
+time 	plugin/packer_compiled.lua	/^  time = function(chunk, start) end$/;"	f
+time 	plugin/packer_compiled.lua	/^  time = function(chunk, start)$/;"	f
+try_loadstring	plugin/packer_compiled.lua	/^local function try_loadstring(s, component, name)$/;"	f

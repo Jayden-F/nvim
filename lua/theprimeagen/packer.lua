@@ -62,9 +62,7 @@ return require('packer').startup(function(use)
         }
     }
 
-    use("folke/zen-mode.nvim")
     use("github/copilot.vim")
-    use("eandrju/cellular-automaton.nvim")
     use("ThePrimeagen/vim-be-good")
     use({
         "kylechui/nvim-surround",

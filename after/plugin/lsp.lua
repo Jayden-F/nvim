@@ -29,10 +29,14 @@ lsp.setup_nvim_cmp({
 lsp.set_preferences({
     suggest_lsp_servers = true,
     sign_icons = {
-        error = "",
-        warn = "",
-        hint = "",
-        info = "",
+        error = 'E',
+        warn = 'W',
+        hint = 'H',
+        info = 'I'
+--        error = "",
+--        warn = "",
+--        hint = "",
+--        info = "",
     }
 })
 

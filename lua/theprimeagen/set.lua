@@ -33,3 +33,4 @@ vim.opt.colorcolumn = "80"
 vim.opt.spelllang = 'en_au'
 vim.opt.spell = true
 vim.opt.spellsuggest = {'best', 10}
+

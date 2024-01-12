@@ -32,6 +32,12 @@ autocmd({"BufWritePre"}, {
     command = [[%s/\s\+$//e]],
 })
 
+
+function ROS2()
+    vim.bo.errorformat = "%E---\\ %m:\\ %f,%C\\ \\ \\ File\\ \"%f\"\\\\,\\ line\\ %l,%Z\\ \\ \\ %m"
+    vim.bo.makeprg = "colcon build"
+end
+
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25

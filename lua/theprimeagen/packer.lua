@@ -37,7 +37,24 @@ return require('packer').startup(function(use)
     use("mbbill/undotree")
     use("tpope/vim-fugitive")
     use("nvim-treesitter/nvim-treesitter-context");
-
+    use {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require('copilot').setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
+        end,
+    }
+    use {
+        "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua" },
+        config = function()
+            require("copilot_cmp").setup()
+        end
+    }
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
@@ -61,7 +78,6 @@ return require('packer').startup(function(use)
         }
     }
 
-    use("github/copilot.vim")
     use("ThePrimeagen/vim-be-good")
     use({
         "kylechui/nvim-surround",

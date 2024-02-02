@@ -35,7 +35,15 @@ return require('packer').startup(function(use)
     use("theprimeagen/harpoon")
     use("theprimeagen/refactoring.nvim")
     use("mbbill/undotree")
-    use("tpope/vim-fugitive")
+    use {
+        'NeogitOrg/neogit',
+        requires = {
+            'nvim-lua/plenary.nvim', -- required
+            'sindrets/diffview.nvim', -- optional - Diff integration
+            -- Only one of these is needed, not both.
+            'nvim-telescope/telescope.nvim', -- optional
+        },
+    }
     use("nvim-treesitter/nvim-treesitter-context");
     use {
         "zbirenbaum/copilot.lua",

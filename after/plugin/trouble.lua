@@ -62,3 +62,4 @@ vim.keymap.set("n", "<leader>td", function() require("trouble").toggle("document
 vim.keymap.set("n", "<leader>tq", function() require("trouble").toggle("quickfix") end)
 vim.keymap.set("n", "<leader>tl", function() require("trouble").toggle("loclist") end)
 vim.keymap.set("n", "gr", function() require("trouble").toggle("lsp_references") end)
+vim.keymap.set("n", "gd", function() require("trouble").toggle("lsp_definitions") end)

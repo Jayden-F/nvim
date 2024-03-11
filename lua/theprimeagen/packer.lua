@@ -103,4 +103,16 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
     use 'preservim/nerdcommenter'
+
+
+    use({
+        "epwalsh/obsidian.nvim",
+        tag = "*", -- recommended, use latest release instead of latest commit
+        requires = {
+            -- Required.
+            "nvim-lua/plenary.nvim",
+
+            -- see below for full list of optional dependencies 👇
+        }
+    })
 end)

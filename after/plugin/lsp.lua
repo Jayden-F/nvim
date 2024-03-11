@@ -29,12 +29,12 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
     sources = {
-        { name = "copilot" },
         { name = 'path' },
-        { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
+        { name = 'nvim_lsp' },
         { name = 'luasnip', keyword_length = 2 },
         { name = 'buffer',  keyword_length = 3 },
+        { name = "copilot" },
     },
     formatting = lsp_zero.cmp_format(),
     mapping = cmp.mapping.preset.insert({

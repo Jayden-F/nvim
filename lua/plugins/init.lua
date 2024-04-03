@@ -1,6 +1,5 @@
 return {
     'nvim-tree/nvim-web-devicons',
-    "mbbill/undotree",
     {
         "kylechui/nvim-surround",
         event = "BufReadPost",

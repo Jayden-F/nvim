@@ -1,8 +1,6 @@
 return { {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.6',
-    -- or                              , branch = '0.1.x',
-    event = "BufReadPost",
     dependencies = { 'nvim-lua/plenary.nvim', },
     keys = {
         { "<leader>ff", function() require('telescope.builtin').find_files() end,                       "find files" },
@@ -24,7 +22,6 @@ return { {
 },
     {
         "debugloop/telescope-undo.nvim",
-        event = "BufReadPost",
         dependencies = { -- note how they're inverted to above example
             {
                 "nvim-telescope/telescope.nvim",
@@ -48,9 +45,6 @@ return { {
             },
         },
         config = function(_, opts)
-            -- Calling telescope's setup from multiple specs does not hurt, it will happily merge the
-            -- configs for us. We won't use data, as everything is in it's own namespace (telescope
-            -- defaults, as well as each extension).
             require("telescope").setup(opts)
             require("telescope").load_extension("undo")
         end,

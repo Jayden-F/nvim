@@ -3,11 +3,11 @@ return {
     "mbbill/undotree",
     {
         "kylechui/nvim-surround",
-        lazy = false,
+        event = "BufReadPost",
         config = function()
             require("nvim-surround").setup({})
         end
     },
-    { 'numToStr/Comment.nvim',                   opts = {},                                            lazy = false, },
+    { 'numToStr/Comment.nvim', opts = {}, event = "BufReadPost", },
 
 }

@@ -8,5 +8,5 @@ return {
     "nvim-telescope/telescope.nvim", -- optional
   },
   keys = {{"<leader>gs", function() require('neogit').open() end, "Neogit"}},
-  config = true
+  config = {    graph_style = "unicode",}
 }

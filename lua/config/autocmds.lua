@@ -1,12 +1,5 @@
-require("theprimeagen.set")
-require("theprimeagen.remap")
-
--- DO NOT INCLUDE THIS
--- vim.opt.rtp:append("~/personal/streamer-tools")
--- DO NOT INCLUDE THIS
-
 local augroup = vim.api.nvim_create_augroup
-local ThePrimeagenGroup = augroup('ThePrimeagen', {})
+local format_group = augroup('FormatGroup', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
@@ -27,17 +20,13 @@ autocmd('TextYankPost', {
 })
 
 autocmd({"BufWritePre"}, {
-    group = ThePrimeagenGroup,
+    group = format_group,
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
-
 
 function ROS2()
     vim.bo.errorformat = "%E---\\ %m:\\ %f,%C\\ \\ \\ File\\ \"%f\"\\\\,\\ line\\ %l,%Z\\ \\ \\ %m"
     vim.bo.makeprg = "colcon build"
 end
 
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25

@@ -1,5 +1,8 @@
-require('lualine').setup {
-  options = {
+return {
+    'nvim-lualine/lualine.nvim',
+    lazy = false,
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {
     icons_enabled = true,
     theme = 'material',
     component_separators = { left = '', right = ''},
@@ -38,3 +41,4 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+

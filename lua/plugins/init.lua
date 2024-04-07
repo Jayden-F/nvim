@@ -7,7 +7,7 @@ return {
             require("nvim-surround").setup({})
         end
     },
-    { 'numToStr/Comment.nvim', opts = {}, event = "BufReadPost", },
+    { 'numToStr/Comment.nvim', opts = {}, event = "BufEnter", },
     {
         "m4xshen/hardtime.nvim",
         event = "BufReadPost",

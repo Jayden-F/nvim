@@ -22,7 +22,6 @@ return {
         event = 'InsertEnter',
         dependencies = {
             { 'L3MON4D3/LuaSnip',
-                "zbirenbaum/copilot-cmp",
             },
         },
         config = function()

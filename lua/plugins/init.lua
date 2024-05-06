@@ -8,10 +8,10 @@ return {
         end
     },
     { 'numToStr/Comment.nvim', opts = {}, event = "BufEnter", },
-    {
-        "m4xshen/hardtime.nvim",
-        event = "BufReadPost",
-        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-        opts = {}
-    },
+    -- {
+    --     "m4xshen/hardtime.nvim",
+    --     event = "BufReadPost",
+    --     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    --     opts = {}
+    -- },
 }

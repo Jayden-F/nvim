@@ -15,7 +15,13 @@ return {
         lazy = false,
         config = true,
     },
-
+    {
+        "j-hui/fidget.nvim",
+        lazy = false,
+        opts = {
+            -- options
+        },
+    },
     -- Autocompletion
     {
         'hrsh7th/nvim-cmp',

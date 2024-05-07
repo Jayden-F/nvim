@@ -80,8 +80,8 @@ return {
             --- if you want to know more about lsp-zero and mason.nvim
             --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
             lsp_zero.on_attach(function(client, bufnr)
-                if client.server_capabilities.inlayHintProvider then
-                    vim.lsp.inlay_hint.enable(bufnr, true)
+                if vim.lsp.inlay_hint then
+                    vim.lsp.inlay_hint.enable(true)
                 end
 
                 vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)

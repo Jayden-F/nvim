@@ -2,7 +2,7 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     lazy = false,
-    config = {
+    opts = {
         variant = "main",      -- auto, main, moon, or dawn
         dark_variant = "main", -- main, moon, or dawn
         dim_inactive_windows = false,

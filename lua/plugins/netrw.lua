@@ -2,7 +2,7 @@ return {
     'prichrd/netrw.nvim',
     lazy = false,
     opts = {
-       oicons = {
+        oicons = {
             symlink = '', -- Symlink icon (directory and file)
             directory = '', -- Directory icon
             file = '', -- File icon

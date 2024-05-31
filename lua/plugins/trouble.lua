@@ -1,16 +1,14 @@
-local trouble = require("trouble")
-
 return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
-        { "<leader>tt", function() trouble.toggle() end,                        "Trouble" },
-        { "<leader>tw", function() trouble.toggle("workspace_diagnostics") end, "Trouble Workspace" },
-        { "<leader>td", function() trouble.toggle("document_diagnostics") end,  "Trouble Document" },
-        { "<leader>tq", function() trouble.toggle("quickfix") end,              "Trouble Quickfix" },
-        { "<leader>tl", function() trouble.toggle("loclist") end,               "Trouble Loclist" },
-        { "gr",         function() trouble.toggle("lsp_references") end,        "Trouble References" },
-        { "gd",         function() trouble.toggle("lsp_definitions") end,       "Trouble Definitions" },
+        { "<leader>tt", "<cmd>Trouble close<cr>",                                      "Trouble" },
+        { "<leader>tw", "<cmd>Trouble diagnostics toggle focus=true<cr>",              "Trouble Workspace" },
+        { "<leader>td", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>", "Trouble Document" },
+        { "<leader>tq", "<cmd>Trouble qflist toggle focus=true<cr>",                   "Trouble Quickfix" },
+        { "<leader>tl", "<cmd>Trouble loclist toggle focus=true<cr>",                  "Trouble Loclist" },
+        { "gr",         "<cmd>Trouble lsp_references toggle focus=true<cr>",           "Trouble References" },
+        { "gd",         "<cmd>Trouble lsp_definitions toggle focus=true<cr>",          "Trouble Definitions" },
     },
     opts = {
     },

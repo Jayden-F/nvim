@@ -8,7 +8,10 @@ return {
         "alfaix/neotest-gtest",
         "nvim-neotest/neotest-python"
     },
-    keys         = { { "<leader>tc", function() require('neotest').run.run() end, "Neotest" } },
+    keys         = {
+        { "<leader>tc", function() require('neotest').run.run() end,        "Neotest" },
+        { "<leader>ts", function() require('neotest').summary.toggle() end, "Neotest summary" },
+    },
     config       = function()
         local neotest = require("neotest")
         neotest.setup({

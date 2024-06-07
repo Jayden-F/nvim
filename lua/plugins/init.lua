@@ -1,17 +1,14 @@
 return {
-    'nvim-tree/nvim-web-devicons',
     {
-        "kylechui/nvim-surround",
-        event = "BufReadPost",
-        config = function()
-            require("nvim-surround").setup({})
-        end
+        'nvim-tree/nvim-web-devicons',
+        opts = {}
     },
-    { 'numToStr/Comment.nvim', opts = {}, event = "BufEnter", },
     -- {
-    --     "m4xshen/hardtime.nvim",
-    --     event = "BufReadPost",
-    --     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    --     "kylchui/nvim-surround",
     --     opts = {}
     -- },
+    {
+        'numToStr/Comment.nvim',
+        opts = {},
+    }
 }

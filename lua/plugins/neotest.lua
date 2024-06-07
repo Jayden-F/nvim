@@ -9,8 +9,8 @@ return {
         "nvim-neotest/neotest-python"
     },
     keys         = {
-        { "<leader>tc", function() require('neotest').run.run() end,        "Neotest" },
-        { "<leader>ts", function() require('neotest').summary.toggle() end, "Neotest summary" },
+        { "<leader>tc", function() require('neotest').run.run(vim.fn.expand("%")) end, "Neotest" },
+        { "<leader>ts", function() require('neotest').summary.toggle() end,            "Neotest summary" },
     },
     config       = function()
         local neotest = require("neotest")

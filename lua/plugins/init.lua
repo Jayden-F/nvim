@@ -3,12 +3,13 @@ return {
         'nvim-tree/nvim-web-devicons',
         opts = {}
     },
-    -- {
-    --     "kylchui/nvim-surround",
-    --     opts = {}
-    -- },
     {
-        'numToStr/Comment.nvim',
-        opts = {},
-    }
+        "kylechui/nvim-surround",
+        event = {"VeryLazy"},
+        opts = {}
+    },
+    -- {
+    --     'numToStr/Comment.nvim',
+    --     opts = {},
+    -- }
 }

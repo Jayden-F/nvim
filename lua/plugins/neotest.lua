@@ -17,7 +17,7 @@ return {
             adapters = {
                 require("neotest-gtest").setup({
                 }),
-                require("neotest-python"),
+                require("neotest-python")({ python = ".venv/bin/python", }),
             }
         })
     end,

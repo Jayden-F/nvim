@@ -12,9 +12,9 @@ return { {
         sync_install = false,
         auto_install = true,
     },
-    -- config = function(_, opts)
-    --     require("nvim-treesitter.configs").setup(opts)
-    -- end,
+    config = function(_, opts)
+        require("nvim-treesitter.configs").setup(opts)
+    end,
 },
     {
         "nvim-treesitter/nvim-treesitter-context",

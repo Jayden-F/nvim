@@ -1,7 +1,7 @@
 return {
     "rose-pine/neovim",
     name = "rose-pine",
-    event = { "VeryLazy" },
+    event = "VeryLazy",
     -- lazy = false,
     opts = {
         variant = "main",      -- auto, main, moon, or dawn

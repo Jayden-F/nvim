@@ -1,25 +1,25 @@
-return { {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = { 'BufReadPre', 'BufNewFile' },
-    opts = {
-        highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = { "markdown" },
+return {
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        event = { 'BufReadPre', 'BufNewFile' },
+        dependencies = { "nvim-treesitter/nvim-treesitter-context" },
+        opts = {
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = { "markdown" },
+            },
+            indent = { enable = true },
+            ensure_installed = { "vimdoc", "cpp", "python", "lua", "markdown", "rust" },
+            sync_install = false,
+            auto_install = true,
         },
-        indent = { enable = true },
-        ensure_installed = { "vimdoc", "cpp", "python", "lua", "markdown", "rust" },
-        sync_install = false,
-        auto_install = true,
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
+        end,
     },
-    config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
-    end,
-},
     {
         "nvim-treesitter/nvim-treesitter-context",
-        event = "BufReadPost",
-        dependencies = { "nvim-treesitter/nvim-treesitter", },
         opts = {
             enable = true,           -- Enable this plugin (Can be enabled/disabled later via commands)
             max_lines = 4,           -- How many lines the window should span. Values <= 0 mean no limit.
@@ -33,6 +33,6 @@ return { {
             separator = nil,
             zindex = 20,     -- The Z-index of the context window
             on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
-        },
+        }
     }
 }

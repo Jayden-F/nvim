@@ -41,3 +41,5 @@ vim.opt.conceallevel = 2
 vim.opt.spelllang = 'en_au'
 vim.opt.spell = true
 vim.opt.spellsuggest = { 'best', 10 }
+
+vim.o.termguicolors = true

@@ -12,12 +12,12 @@ return {
     },
     {
         'williamboman/mason.nvim',
-        lazy = false,
+        event = "VeryLazy",
         config = true,
     },
     {
         "j-hui/fidget.nvim",
-        lazy = false,
+        event = "VeryLazy",
         opts = {
             -- options
         },

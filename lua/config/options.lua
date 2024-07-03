@@ -28,6 +28,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+vim.o.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
@@ -42,4 +43,3 @@ vim.opt.spelllang = 'en_au'
 vim.opt.spell = true
 vim.opt.spellsuggest = { 'best', 10 }
 
-vim.o.termguicolors = true

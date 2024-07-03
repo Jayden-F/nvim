@@ -5,6 +5,7 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
         "alfaix/neotest-gtest",
+        "Issafalcon/neotest-dotnet",
         "nvim-neotest/neotest-python",
         "rouge8/neotest-rust",
     },
@@ -16,10 +17,10 @@ return {
         local neotest = require("neotest")
         neotest.setup({
             adapters = {
-                require("neotest-gtest").setup({
-                }),
-                require("neotest-python")({ python = ".venv/bin/python", }),
+                require("neotest-gtest").setup({}),
+                require("neotest-python")({ python = ".venv/bin/python", runner = "pytest" }),
                 require("neotest-rust"),
+                require("neotest-dotnet"),
             }
         })
     end,

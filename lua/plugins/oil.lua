@@ -6,6 +6,7 @@ return {
     cmd = "Oil",
     event = { "VimEnter */*,.*", "BufNew */*,.*" },
     opts = {
+        default_file_explorer = true,
         columns = {
             "icon",
             "permissions",
@@ -16,9 +17,11 @@ return {
         keymaps = {
             ["g?"] = "actions.show_help",
             ["<CR>"] = "actions.select",
-            ["<leader><CR>"] = "actions.open_external",
+            ["<leader>o"] = "actions.open_external",
+            ["<leader>\\"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
+            ["<leader>-"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
+            ["<leader><CR>"] = "actions.preview",
         },
-        default_file_explorer = true,
         view_options = {
             show_hidden = true,
         }

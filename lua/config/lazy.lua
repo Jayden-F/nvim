@@ -13,7 +13,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 -- load lazy
 require("lazy").setup("plugins", {
-    install = { colorscheme = { "rose-pine-moon" } },
+    install = { colorscheme = { "tokyonight-storm" } },
     defaults = { lazy = true },
     ui = {
         border = "rounded",
@@ -22,4 +22,3 @@ require("lazy").setup("plugins", {
     debug = false,
 })
 
-vim.cmd.colorscheme("rose-pine-moon")

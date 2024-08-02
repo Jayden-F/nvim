@@ -12,23 +12,19 @@ return {
     },
     {
         'williamboman/mason.nvim',
-        event = "VeryLazy",
+        lazy = false,
         config = true,
-    },
-    {
-        "j-hui/fidget.nvim",
-        event = "VeryLazy",
-        opts = {
-            -- options
-        },
     },
     -- Autocompletion
     {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
         dependencies = {
-            { 'L3MON4D3/LuaSnip',
-            },
+            'L3MON4D3/LuaSnip',
+            'j-hui/fidget.nvim',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'saadparwaiz1/cmp_luasnip',
         },
         config = function()
             -- Here is where you configure the autocompletion settings.
@@ -69,8 +65,8 @@ return {
         cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
         event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'williamboman/mason-lspconfig.nvim' },
+            'hrsh7th/cmp-nvim-lsp',
+            'williamboman/mason-lspconfig.nvim',
         },
         config = function()
             -- This is where all the LSP shenanigans will live

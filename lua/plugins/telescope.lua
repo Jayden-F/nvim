@@ -1,4 +1,4 @@
-return { {
+return {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim', },
@@ -18,35 +18,5 @@ return { {
 
         { "<leader>gt", function() require('telescope.builtin').tags() end,                             "go to ctags" },
         { "<leader>rt", function() vim.cmd [[!ctags -f .tags --languages=all --exclude=.git -R .]] end, "refresh ctags" },
-    },
-},
-    {
-        "debugloop/telescope-undo.nvim",
-        dependencies = { -- note how they're inverted to above example
-            {
-                "nvim-telescope/telescope.nvim",
-                dependencies = { "nvim-lua/plenary.nvim" },
-            },
-        },
-        keys = {
-            { -- lazy style key map
-                "<leader>u",
-                "<cmd>Telescope undo<cr>",
-                desc = "undo history",
-            },
-        },
-        opts = {
-            -- don't use `defaults = { }` here, do this in the main telescope spec
-            extensions = {
-                undo = {
-                    -- telescope-undo.nvim config, see below
-                },
-                -- no other extensions here, they can have their own spec too
-            },
-        },
-        config = function(_, opts)
-            require("telescope").setup(opts)
-            require("telescope").load_extension("undo")
-        end,
     },
 }

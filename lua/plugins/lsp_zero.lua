@@ -10,14 +10,12 @@ return {
         lazy = false,
         config = true,
     },
-
     -- Autocompletion
     {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
         dependencies = {
             'L3MON4D3/LuaSnip',
-            'j-hui/fidget.nvim',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'saadparwaiz1/cmp_luasnip',

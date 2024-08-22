@@ -40,7 +40,7 @@ return {
                         vim.snippet.expand(args.body)
                     end,
                 },
-                formatting = lsp_zero.cmp_format({ details = true }),
+                formatting = lsp_zero.cmp_format({}),
             })
         end
     },

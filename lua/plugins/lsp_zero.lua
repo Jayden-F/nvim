@@ -15,21 +15,20 @@ return {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
         dependencies = {
-            'L3MON4D3/LuaSnip',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
-            'saadparwaiz1/cmp_luasnip',
+            'L3MON4D3/LuaSnip',
         },
         config = function()
+            local lsp_zero = require('lsp-zero')
             local cmp = require('cmp')
 
             cmp.setup({
                 sources = {
-                    { name = 'path' },
-                    { name = 'nvim_lua' },
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
-                    { name = 'buffer' },
+                    { name = 'buffer',  keyword_length = 2 },
+                    { name = 'path',    keyword_length = 2 },
                 },
                 mapping = cmp.mapping.preset.insert({
                     ['<C-Space>'] = cmp.mapping.complete(),
@@ -41,6 +40,7 @@ return {
                         vim.snippet.expand(args.body)
                     end,
                 },
+                formatting = lsp_zero.cmp_format({ details = true }),
             })
         end
     },

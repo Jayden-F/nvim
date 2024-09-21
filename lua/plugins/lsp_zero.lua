@@ -4,6 +4,7 @@ return {
         branch = 'v4.x',
         lazy = true,
         config = false,
+
     },
     {
         'williamboman/mason.nvim',
@@ -28,7 +29,7 @@ return {
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
                     { name = 'buffer',  keyword_length = 2 },
-                    { name = 'path',    keyword_length = 2 },
+                    { name = 'path',    keyword_length = 3 },
                 },
                 mapping = cmp.mapping.preset.insert({
                     ['<C-Space>'] = cmp.mapping.complete(),

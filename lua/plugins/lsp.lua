@@ -1,16 +1,10 @@
 return {
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v4.x',
-        lazy = true,
-        config = false,
-
-    },
-    {
         'williamboman/mason.nvim',
         lazy = false,
-        config = true,
+        opts = {},
     },
+
     -- Autocompletion
     {
         'hrsh7th/nvim-cmp',
@@ -23,9 +17,7 @@ return {
             "rafamadriz/friendly-snippets"
         },
         config = function()
-            local lsp_zero = require('lsp-zero')
             local cmp = require('cmp')
-
             require("luasnip.loaders.from_vscode").lazy_load()
 
             cmp.setup({
@@ -45,7 +37,6 @@ return {
                         vim.snippet.expand(args.body)
                     end,
                 },
-                formatting = lsp_zero.cmp_format({}),
             })
         end
     },
@@ -60,30 +51,38 @@ return {
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
         },
+        init = function()
+            -- Reserve a space in the gutter
+            -- This will avoid an annoying layout shift in the screen
+            vim.opt.signcolumn = 'yes'
+        end,
         config = function()
-            local lsp_zero = require('lsp-zero')
+            local lsp_defaults = require('lspconfig').util.default_config
 
-            -- lsp_attach is where you enable features that only work
+            -- Add cmp_nvim_lsp capabilities settings to lspconfig
+            -- This should be executed before you configure any language server
+            lsp_defaults.capabilities = vim.tbl_deep_extend(
+                'force',
+                lsp_defaults.capabilities,
+                require('cmp_nvim_lsp').default_capabilities()
+            )
+
+            -- LspAttach is where you enable features that only work
             -- if there is a language server active in the file
-            local lsp_attach = function(client, bufnr)
-                local opts = { buffer = bufnr }
-
-                vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
-                vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-                vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, opts)
-                vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-                vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-                vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-                vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-                vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-                vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end, opts)
-            end
-
-            lsp_zero.extend_lspconfig({
-                sign_text = true,
-                lsp_attach = lsp_attach,
-                float_border = 'rounded',
-                capabilities = require('cmp_nvim_lsp').default_capabilities()
+            vim.api.nvim_create_autocmd('LspAttach', {
+                desc = 'LSP actions',
+                callback = function(event)
+                    local opts = { buffer = event.buf }
+                    vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
+                    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+                    vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, opts)
+                    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+                    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+                    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+                    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+                    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+                    vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end, opts)
+                end,
             })
 
             require('mason-lspconfig').setup({

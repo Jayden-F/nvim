@@ -19,17 +19,20 @@ return {
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'L3MON4D3/LuaSnip',
+            "rafamadriz/friendly-snippets"
         },
         config = function()
             local lsp_zero = require('lsp-zero')
             local cmp = require('cmp')
+
+            require("luasnip.loaders.from_vscode").lazy_load()
 
             cmp.setup({
                 sources = {
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
                     { name = 'buffer',  keyword_length = 2 },
-                    { name = 'path',    keyword_length = 3 },
+                    { name = 'path',    keyword_length = 2 },
                 },
                 mapping = cmp.mapping.preset.insert({
                     ['<C-Space>'] = cmp.mapping.complete(),

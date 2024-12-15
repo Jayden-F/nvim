@@ -13,10 +13,12 @@ return {
             { 'L3MON4D3/LuaSnip' },
         },
         build = 'cargo build --release',
-        -- version = 'v0.*',
         opts = {
             keymap = { preset = 'default' },
             completion = {
+                accept = {
+                    auto_brackets = { enabled = false }
+                },
                 menu = {
                     draw = {
                         treesitter = { 'lsp' },

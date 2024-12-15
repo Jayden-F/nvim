@@ -19,7 +19,7 @@ autocmd('TextYankPost', {
     end,
 })
 
-autocmd({"BufWritePre"}, {
+autocmd({ "BufWritePre" }, {
     group = format_group,
     pattern = "*",
     command = [[%s/\s\+$//e]],
@@ -29,4 +29,3 @@ function ROS2()
     vim.bo.errorformat = "%E---\\ %m:\\ %f,%C\\ \\ \\ File\\ \"%f\"\\\\,\\ line\\ %l,%Z\\ \\ \\ %m"
     vim.bo.makeprg = "colcon build"
 end
-

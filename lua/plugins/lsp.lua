@@ -7,38 +7,42 @@ return {
 
     -- Autocompletion
     {
-        'hrsh7th/nvim-cmp',
-        event = 'InsertEnter',
+        'saghen/blink.cmp',
         dependencies = {
-            'saadparwaiz1/cmp_luasnip',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-path',
-            'L3MON4D3/LuaSnip',
-            "rafamadriz/friendly-snippets"
+            { 'rafamadriz/friendly-snippets' },
+            { 'L3MON4D3/LuaSnip' },
         },
-        config = function()
-            local cmp = require('cmp')
-            require("luasnip.loaders.from_vscode").lazy_load()
-
-            cmp.setup({
-                sources = {
-                    { name = 'nvim_lsp' },
-                    { name = 'luasnip' },
-                    { name = 'buffer',  keyword_length = 2 },
-                    { name = 'path',    keyword_length = 2 },
+        build = 'cargo build --release',
+        -- version = 'v0.*',
+        opts = {
+            keymap = { preset = 'default' },
+            completion = {
+                menu = {
+                    draw = {
+                        treesitter = { 'lsp' },
+                        columns = { { "label", "label_description", gap = 1 }, { "kind_icon", gap = 1, "kind" } },
+                    },
                 },
-                mapping = cmp.mapping.preset.insert({
-                    ['<C-Space>'] = cmp.mapping.complete(),
-                    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-                    ['<C-d>'] = cmp.mapping.scroll_docs(4),
-                }),
-                snippet = {
-                    expand = function(args)
-                        vim.snippet.expand(args.body)
-                    end,
+                documentation = {
+                    auto_show = true,
+                    auto_show_delay_ms = 0,
                 },
-            })
-        end
+            },
+            snippets = {
+                expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
+                active = function(filter)
+                    if filter and filter.direction then
+                        return require('luasnip').jumpable(filter.direction)
+                    end
+                    return require('luasnip').in_snippet()
+                end,
+                jump = function(direction) require('luasnip').jump(direction) end,
+            },
+            sources = {
+                default = { 'lsp', 'path', 'snippets', 'buffer' },
+            },
+        },
+        opts_extend = { "sources.default" }
     },
 
     -- LSP
@@ -47,7 +51,7 @@ return {
         cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
         event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
-            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'saghen/blink.cmp' },
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
         },
@@ -57,16 +61,6 @@ return {
             vim.opt.signcolumn = 'yes'
         end,
         config = function()
-            local lsp_defaults = require('lspconfig').util.default_config
-
-            -- Add cmp_nvim_lsp capabilities settings to lspconfig
-            -- This should be executed before you configure any language server
-            lsp_defaults.capabilities = vim.tbl_deep_extend(
-                'force',
-                lsp_defaults.capabilities,
-                require('cmp_nvim_lsp').default_capabilities()
-            )
-
             -- LspAttach is where you enable features that only work
             -- if there is a language server active in the file
             vim.api.nvim_create_autocmd('LspAttach', {
@@ -91,7 +85,10 @@ return {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
                     function(server_name)
-                        require('lspconfig')[server_name].setup({})
+                        local config = {}
+                        local lspconfig = require('lspconfig')
+                        config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+                        lspconfig[server_name].setup(config)
                         if vim.lsp.inlay_hint then
                             vim.lsp.inlay_hint.enable(true)
                         end

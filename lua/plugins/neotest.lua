@@ -6,6 +6,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         "alfaix/neotest-gtest",
         "nvim-neotest/neotest-python",
+        {"lawrence-laz/neotest-zig", tag="1.3.1"},
         "rouge8/neotest-rust",
     },
     keys         = {
@@ -19,6 +20,7 @@ return {
                 require("neotest-gtest").setup({}),
                 require("neotest-python")({ python = ".venv/bin/python", runner = "pytest" }),
                 require("neotest-rust"),
+                require("neotest-zig"),
             }
         })
     end,

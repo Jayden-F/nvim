@@ -1,10 +1,8 @@
-return {
-    {
-        'williamboman/mason.nvim',
-        lazy = false,
-        opts = {},
-    },
-
+return { {
+    'williamboman/mason.nvim',
+    lazy = false,
+    opts = {},
+},
     -- Autocompletion
     {
         'saghen/blink.cmp',
@@ -42,6 +40,7 @@ return {
             },
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
+                cmdline = {},
             },
         },
         opts_extend = { "sources.default" }
@@ -62,6 +61,7 @@ return {
             -- This will avoid an annoying layout shift in the screen
             vim.opt.signcolumn = 'yes'
         end,
+
         config = function()
             -- LspAttach is where you enable features that only work
             -- if there is a language server active in the file

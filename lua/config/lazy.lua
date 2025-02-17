@@ -17,11 +17,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- load lazy
-require("lazy").setup("plugins", {
-    defaults = { lazy = true },
-    ui = {
-        border = "rounded",
+require("lazy").setup({
+    spec = {
+        { import = "plugins" },
     },
+    defaults = { lazy = true },
     checker = { enabled = true },
-    debug = false,
 })

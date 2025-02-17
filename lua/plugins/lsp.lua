@@ -8,7 +8,10 @@ return { {
         'saghen/blink.cmp',
         dependencies = {
             { 'rafamadriz/friendly-snippets' },
-            { 'L3MON4D3/LuaSnip' },
+            {
+                'L3MON4D3/LuaSnip',
+                build = "make install_jsregexp"
+            },
         },
         build = 'cargo build --release',
         opts = {
@@ -40,8 +43,8 @@ return { {
             },
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
-                cmdline = {},
             },
+            cmdline = { sources = {}, },
         },
         opts_extend = { "sources.default" }
     },

@@ -27,7 +27,8 @@ return {
         { "<leader>rpc", function() require('refactoring').debug.cleanup({}) end, mode = 'n' },
 
     },
-
-    opts = {},
+    opts = {
+        show_success_message = true,
+    },
 
 }

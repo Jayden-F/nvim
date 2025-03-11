@@ -8,28 +8,5 @@ The configuration is optimized for ease of use and minimal manual intervention. 
 
 ## Installation
 
-
-### This
-
 To use this configuration, clone the repository and copy the configuration files to your Neovim configuration directory.
-
-- [ ]
-- [x]
-
-
-```python
-
-for i in range(10):
-    print(i)
-
-```
-
-
-
-| Column1 | Column2 | Column3 |
-| ------------- | -------------- | -------------- |
-| Item1 | Item1 | Item1 |
-
-
-
 

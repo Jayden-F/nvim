@@ -5,18 +5,18 @@ return {
         "nvim-treesitter/nvim-treesitter",
     },
     keys = {
-        { "<leader>rf",  function() require('refactoring').refactor('Extract Function') end,         mode = 'x' },
-        { "<leader>rff", function() require('refactoring').refactor('Extract Function To File') end, mode = 'x' },
+        { "<leader>rf",  function() return require('refactoring').refactor('Extract Function') end,         mode = 'x',          expr = true },
+        { "<leader>rff", function() return require('refactoring').refactor('Extract Function To File') end, mode = 'x',          expr = true },
         -- Extract function supports only visual mode
-        { "<leader>rv",  function() require('refactoring').refactor('Extract Variable') end,         mode = 'x' },
+        { "<leader>rv",  function() return require('refactoring').refactor('Extract Variable') end,         mode = 'x',          expr = true },
         -- Extract variable supports only visual mode
-        { "<leader>rif", function() require('refactoring').refactor('Inline Function') end,          mode = 'n' },
+        { "<leader>rif", function() return require('refactoring').refactor('Inline Function') end,          mode = 'n',          expr = true },
         -- Inline func supports only normal
-        { "<leader>riv", function() require('refactoring').refactor('Inline Variable') end,          mode = { 'n', 'x' } },
+        { "<leader>riv", function() return require('refactoring').refactor('Inline Variable') end,          mode = { 'n', 'x' }, expr = true },
         -- Inline var supports both normal and visual mode
 
-        { "<leader>rb",  function() require('refactoring').refactor('Extract Block') end,            mode = 'n' },
-        { "<leader>rbf", function() require('refactoring').refactor('Extract Block To File') end,    mode = 'n' },
+        { "<leader>rb",  function() return require('refactoring').refactor('Extract Block') end,            mode = 'n',          expr = true },
+        { "<leader>rbf", function() return require('refactoring').refactor('Extract Block To File') end,    mode = 'n',          expr = true },
         -- Extract block supports only normal mode
         {
             "<leader>rpm",
@@ -27,8 +27,9 @@ return {
         { "<leader>rpc", function() require('refactoring').debug.cleanup({}) end, mode = 'n' },
 
     },
-    opts = {
-        show_success_message = true,
-    },
-
+    config = function()
+        require("refactoring").setup(
+            { show_success_message = true, }
+        )
+    end,
 }

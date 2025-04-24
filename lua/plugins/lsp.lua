@@ -1,8 +1,9 @@
-return { {
-    'williamboman/mason.nvim',
-    lazy = false,
-    opts = {},
-},
+return {
+    {
+        'williamboman/mason.nvim',
+        lazy = false,
+        opts = {},
+    },
     -- Autocompletion
     {
         'saghen/blink.cmp',
@@ -31,6 +32,13 @@ return { {
                     auto_show_delay_ms = 0,
                 },
             },
+            fuzzy = {
+                sorts = {
+                    'exact',
+                    'score',
+                    'sort_text',
+                },
+            },
             snippets = {
                 expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
                 active = function(filter)
@@ -44,7 +52,6 @@ return { {
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
             },
-            cmdline = { sources = {}, },
         },
         opts_extend = { "sources.default" }
     },

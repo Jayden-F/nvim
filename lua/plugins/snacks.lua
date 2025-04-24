@@ -1,4 +1,3 @@
-
 return {
     "folke/snacks.nvim",
     priority = 1000,
@@ -8,8 +7,8 @@ return {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
+        input = { enabled = false },
         bigfile = { enabled = true },
-        input = { enabled = true },
         picker = { enabled = true },
         notifier = { enabled = true, top_down = false, style = "minimal" },
         notify = { enabled = true },

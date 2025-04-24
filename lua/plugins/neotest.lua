@@ -7,7 +7,7 @@ return {
          "orjangj/neotest-ctest",
         -- "alfaix/neotest-gtest",
         "nvim-neotest/neotest-python",
-        {"lawrence-laz/neotest-zig", tag="1.3.1"},
+        "lawrence-laz/neotest-zig",
         "rouge8/neotest-rust",
     },
     keys         = {

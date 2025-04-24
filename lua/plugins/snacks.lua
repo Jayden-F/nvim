@@ -9,7 +9,14 @@ return {
         -- refer to the configuration section below
         input = { enabled = false },
         bigfile = { enabled = true },
-        picker = { enabled = true },
+        picker = {
+            enabled = true,
+            sources = {
+                select = {
+                    layout = { preset = "ivy" }
+                },
+            }
+        },
         notifier = { enabled = true, top_down = false, style = "minimal" },
         notify = { enabled = true },
         quickfile = { enabled = true },
@@ -24,5 +31,5 @@ return {
         { "<leader>fq", function() Snacks.picker.qflist() end,     desc = "Quickfix List" },
         { "<leader>fu", function() Snacks.picker.undo() end,       desc = "Undo History" },
         { "<leader>gb", function() Snacks.gitbrowse() end,         desc = "Git Browse",               mode = { "n", "v" } },
-    }
+    },
 }

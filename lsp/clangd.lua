@@ -1,6 +1,6 @@
 return {
     cmd = { 'clangd' },
-    filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda'},
+    filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
     root_markers = {
         '.clangd',
         '.clang-tidy',

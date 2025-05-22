@@ -10,14 +10,14 @@ return {
                     italic = true,
                     transparency = true,
                 },
-                -- groups = {
-                    -- border = "muted",
-                    -- panel = "none",
-                -- },
-                -- highlight_groups = {
-                    -- TreesitterContext = { bg = 'NONE' },
-                    -- TreesitterContextLineNumber = { bg = 'NONE' },
-                -- },
+                groups = {
+                border = "muted",
+                panel = "none",
+                },
+                highlight_groups = {
+                TreesitterContext = { bg = 'NONE' },
+                TreesitterContextLineNumber = { bg = 'NONE' },
+                },
             })
             vim.cmd.colorscheme("rose-pine-moon")
         end,

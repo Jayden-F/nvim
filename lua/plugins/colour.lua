@@ -7,16 +7,16 @@ return {
             require("rose-pine").setup({
                 styles = {
                     bold = true,
-                    italic = true,
+                    italic = false,
                     transparency = true,
                 },
                 groups = {
-                border = "muted",
-                panel = "none",
+                    border = "muted",
+                    panel = "none",
                 },
                 highlight_groups = {
-                TreesitterContext = { bg = 'NONE' },
-                TreesitterContextLineNumber = { bg = 'NONE' },
+                    TreesitterContext = { bg = 'NONE' },
+                    TreesitterContextLineNumber = { bg = 'NONE' },
                 },
             })
             vim.cmd.colorscheme("rose-pine-moon")

@@ -4,10 +4,6 @@ local format_group = augroup('FormatGroup', {})
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 
-function R(name)
-    require("plenary.reload").reload_module(name)
-end
-
 autocmd('TextYankPost', {
     group = yank_group,
     pattern = '*',
@@ -24,11 +20,6 @@ autocmd({ "BufWritePre" }, {
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
-
-function ROS2()
-    vim.bo.errorformat = "%E---\\ %m:\\ %f,%C\\ \\ \\ File\\ \"%f\"\\\\,\\ line\\ %l,%Z\\ \\ \\ %m"
-    vim.bo.makeprg = "colcon build"
-end
 
 vim.api.nvim_create_autocmd("User", {
     pattern = "OilActionsPost",
@@ -99,4 +90,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end, opts)
     end,
 })
-

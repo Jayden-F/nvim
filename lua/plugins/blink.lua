@@ -1,21 +1,28 @@
 return {
     'saghen/blink.cmp',
+    build = 'nix run .#build-plugin',
     event = "InsertEnter",
     dependencies = {
-        { 'rafamadriz/friendly-snippets' },
         {
             'L3MON4D3/LuaSnip',
-            build = "make install_jsregexp"
+            dependencies = { "rafamadriz/friendly-snippets" },
+            build = "make install_jsregexp",
+            config = function()
+                require("luasnip").filetype_extend("python", { "pydoc" })
+                require("luasnip.loaders.from_vscode").lazy_load()
+            end,
         },
     },
-    version = "1.*",
     opts = {
         keymap = { preset = 'default' },
         completion = {
             accept = {
-                auto_brackets = { enabled = false }
+                auto_brackets = {
+                    enabled = false,
+                }
             },
             menu = {
+                auto_show_delay_ms = 500,
                 draw = {
                     treesitter = { 'lsp' },
                     columns = { { "label", "label_description", gap = 1 }, { "kind_icon", gap = 1, "kind" } },
@@ -34,14 +41,7 @@ return {
             },
         },
         snippets = {
-            expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
-            active = function(filter)
-                if filter and filter.direction then
-                    return require('luasnip').jumpable(filter.direction)
-                end
-                return require('luasnip').in_snippet()
-            end,
-            jump = function(direction) require('luasnip').jump(direction) end,
+            preset = 'luasnip',
         },
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
@@ -49,4 +49,3 @@ return {
     },
     opts_extend = { "sources.default" }
 }
-

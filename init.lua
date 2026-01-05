@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
+require("config.filetypes")
 
 local lsp_configs = {}
 for _, f in pairs(vim.api.nvim_get_runtime_file('lsp/*.lua', true)) do

@@ -1,8 +1,7 @@
 return {
     'saghen/blink.cmp',
-    build = 'nix run .#build-plugin',
-    event = "InsertEnter",
     dependencies = {
+        'saghen/blink.lib',
         {
             'L3MON4D3/LuaSnip',
             dependencies = { "rafamadriz/friendly-snippets" },
@@ -13,7 +12,15 @@ return {
             end,
         },
     },
+    event = "InsertEnter",
+    build = function()
+        require('blink.cmp').build():wait(60000)
+    end,
+
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
+
         keymap = { preset = 'default' },
         completion = {
             accept = {
@@ -34,6 +41,7 @@ return {
             },
         },
         fuzzy = {
+            implementation = "rust",
             sorts = {
                 'exact',
                 'score',

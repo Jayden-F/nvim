@@ -6,6 +6,9 @@ return {
         options = {
             icons_enabled = true,
             theme = 'material',
+        },
+        sections = {
+            lualine_x = { 'lsp_status', 'encoding', 'fileformat', 'filetype' },
         }
     }
 }
